@@ -52,9 +52,9 @@ const argv = yargs
   const spinner = new Ora()
   const emitter = new EventEmitter()
 
-  argv.hostname = '***REMOVED***'
-  argv.username = '***REMOVED***'
-  argv.password = '***REMOVED***'
+  argv.hostname = 'dev03-ovs-gruppocoin.demandware.net'
+  argv.username = 'francesco.pasqua'
+  argv.password = 'Hfarm2019!'
 
   emitter.on('force', (codeVersion) => {
     spinner.start(`Removing existing code version ${chalk.bold(codeVersion)} ${chalk.gray('(force)')}`)

@@ -1,6 +1,6 @@
 {
   "name": "salesforce-deploy-cli",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "CLI to deploy cartridges on a Salesforce Commerce Cloud instance",
   "license": "MIT",
   "repository": "github:cesconix/salesforce-deploy-cli",
