@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-const { EventEmitter } = require('events');
+const { EventEmitter } = require('events')
 const path = require('path')
 const chalk = require('chalk')
 const Ora = require('ora')
