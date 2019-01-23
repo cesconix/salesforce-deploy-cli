@@ -1,0 +1,45 @@
+{
+  "name": "salesforce-deploy-cli",
+  "version": "1.0.0",
+  "description": "CLI to deploy cartridges on a Salesforce Commerce Cloud instance",
+  "license": "MIT",
+  "repository": "github:cesconix/salesforce-deploy-cli",
+  "homepage": "https://github.com/cesconix/salesforce-deploy-cli#readme",
+  "bugs": "https://github.com/cesconix/salesforce-deploy-cli/issues",
+  "keywords": [
+    "cli",
+    "salesforce",
+    "demandware",
+    "deploy",
+    "webdav",
+    "cartridge",
+    "upload"
+  ],
+  "author": "Francesco Pasqua <cesconix@me.com>",
+  "main": "./index.js",
+  "preferGlobal": true,
+  "engines": {
+    "node": ">=8"
+  },
+  "bin": {
+    "salesforce-deploy": "./index.js"
+  },
+  "scripts": {
+    "test": "standard"
+  },
+  "dependencies": {
+    "chalk": "^2.4.2",
+    "ora": "^3.0.0",
+    "salesforce-deploy": "^1.1.0",
+    "yargs": "^12.0.5"
+  },
+  "devDependencies": {
+    "standard": "^12.0.1",
+    "standard-version": "^4.4.0"
+  },
+  "standard": {
+    "env": [
+      "jest"
+    ]
+  }
+}
