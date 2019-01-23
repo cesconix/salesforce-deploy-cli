@@ -14,9 +14,7 @@ CLI to deploy cartridges on a Salesforce Commerce Cloud instance.
 
 ## Quick Overview
 
-<p align='center'>
 <img src="./screencast.svg" width='600'>
-</p>
 
 ## Installation
 
