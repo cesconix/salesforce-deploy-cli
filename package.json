@@ -25,13 +25,16 @@
     "salesforce-deploy": "./index.js"
   },
   "scripts": {
-    "test": "standard"
+    "test": "standard",
+    "snyk-protect": "snyk protect",
+    "prepare": "npm run snyk-protect"
   },
   "dependencies": {
     "chalk": "^2.4.2",
     "ora": "^3.0.0",
     "salesforce-deploy": "^1.2.1",
-    "yargs": "^12.0.5"
+    "yargs": "^12.0.5",
+    "snyk": "^1.161.1"
   },
   "devDependencies": {
     "standard": "^12.0.1",
@@ -41,5 +44,6 @@
     "env": [
       "jest"
     ]
-  }
+  },
+  "snyk": true
 }
