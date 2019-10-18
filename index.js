@@ -64,7 +64,7 @@ const argv = yargs
 
   emitter.on('checkCodeVersion', codeVersion => {
     argv.force && spinner.succeed()
-    spinner.start(`Checking if the code version does not already exist`)
+    spinner.start('Checking if the code version does not already exist')
   })
 
   emitter.on('mkdir', dest => {
