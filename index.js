@@ -30,10 +30,12 @@ const argv = yargs
     describe: 'Paths to cartridges folder to deploy',
     demandOption: true
   })
-  .coerce('cartridges', args => args.map(c => {
-    const [source, exclude] = c.split(':')
-    return { source: path.resolve(source), exclude }
-  }))
+  .coerce('cartridges', args =>
+    args.map(c => {
+      const [source, exclude] = c.split(':')
+      return { source: path.resolve(source), exclude }
+    })
+  )
   .option('code-version', {
     alias: 'v',
     describe: 'Name of the code version to deploy',
@@ -46,17 +48,21 @@ const argv = yargs
   })
   .demandCommand(0, 0)
   .help()
-  .version().argv;
+  .version().argv
 
-(async () => {
+;(async () => {
   const spinner = new Ora()
   const emitter = new EventEmitter()
 
-  emitter.on('force', (codeVersion) => {
-    spinner.start(`Removing existing code version ${chalk.bold(codeVersion)} ${chalk.gray('(force)')}`)
+  emitter.on('force', codeVersion => {
+    spinner.start(
+      `Removing existing code version ${chalk.bold(codeVersion)} ${chalk.gray(
+        '(force)'
+      )}`
+    )
   })
 
-  emitter.on('checkCodeVersion', (codeVersion) => {
+  emitter.on('checkCodeVersion', codeVersion => {
     argv.force && spinner.succeed()
     spinner.start(`Checking if the code version does not already exist`)
   })
@@ -67,12 +73,16 @@ const argv = yargs
   })
 
   emitter.on('zip', () => {
-    const output = argv.cartridges.map(c => {
-      const exclude = c.exclude ? ` (${c.exclude})` : ''
-      return chalk.cyan(`- ${c.source}`) + chalk.gray(exclude)
-    }).join('\n  ')
+    const output = argv.cartridges
+      .map(c => {
+        const exclude = c.exclude ? ` (${c.exclude})` : ''
+        return chalk.cyan(`- ${c.source}`) + chalk.gray(exclude)
+      })
+      .join('\n  ')
     spinner.succeed()
-    spinner.start(`Creating zip archive of the cartridges\n  ${chalk.cyan(output)}`)
+    spinner.start(
+      `Creating zip archive of the cartridges\n  ${chalk.cyan(output)}`
+    )
   })
 
   emitter.on('upload', file => {
@@ -103,7 +113,7 @@ const argv = yargs
     const hrstart = process.hrtime()
     await deploy({ ...argv, emitter })
     const hrend = process.hrtime(hrstart)
-    const executionTime = (((hrend[0] * 1e9) + hrend[1]) / 1e9).toFixed(1)
+    const executionTime = ((hrend[0] * 1e9 + hrend[1]) / 1e9).toFixed(1)
 
     console.log(
       `${chalk.cyan('Success!')} Deployment ready ` +
