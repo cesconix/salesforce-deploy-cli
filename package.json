@@ -31,7 +31,7 @@
     "chalk": "^2.4.2",
     "ora": "^4.0.2",
     "salesforce-deploy": "^1.2.6",
-    "yargs": "^14.2.0"
+    "yargs": "^16.0.0"
   },
   "devDependencies": {
     "standard": "^14.3.1",
